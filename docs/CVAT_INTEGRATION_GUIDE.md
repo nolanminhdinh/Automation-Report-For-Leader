@@ -20,7 +20,7 @@ Nếu instance CVAT của bạn được phân chia theo Tổ chức (Organizati
 ```http
 X-Organization: <organization_slug>
 ```
-Hoặc gắn kèm query parameter trong URL: `?org=ai20k-cohort-4a`.
+Hoặc gắn kèm query parameter trong URL: `?org=your-organization`.
 
 ---
 

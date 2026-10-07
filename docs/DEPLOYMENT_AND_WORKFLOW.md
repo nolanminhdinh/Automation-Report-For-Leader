@@ -11,7 +11,7 @@ Khi chạy tự động hóa trên GitHub Actions, truy cập:
 
 | Secret Name | Mô tả | Ví dụ |
 | :--- | :--- | :--- |
-| `CVAT_HOST` | Địa chỉ máy chủ CVAT | `https://cvat.transformerlabs.ai` |
+| `CVAT_HOST` | Địa chỉ máy chủ CVAT | `https://cvat.example.org` |
 | `CVAT_TOKEN` | Token cá nhân truy cập CVAT | `d8a9e...` |
 | `DEFAULT_TASK_ID` | Task ID mặc định cần lấy báo cáo | `217` |
 | `TELEGRAM_BOT_TOKEN` | Token Telegram Bot gửi thông báo | `712345678:AAH...` |

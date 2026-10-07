@@ -2,6 +2,8 @@
 
 Tài liệu này đặc tả chi tiết kiến trúc kỹ thuật, luồng dữ liệu (Data Pipeline), mô hình dữ liệu và các thành phần cốt lõi của hệ sinh thái tự động hóa báo cáo CVAT & GitHub.
 
+> 💡 **Xem thêm**: [Tổng hợp 2 Biểu đồ Workflow trực quan](WORKFLOWS.md) chi tiết hóa đường ống 5 giai đoạn và vòng lặp khép kín.
+
 ---
 
 ## 1. Tổng quan kiến trúc (Architecture Overview)

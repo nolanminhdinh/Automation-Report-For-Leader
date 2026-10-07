@@ -185,7 +185,7 @@ CVAT_TOKEN=your_cvat_personal_access_token
 CVAT_TASK_ID=217
 
 # GitHub Configuration
-GITHUB_TOKEN=ghp_your_github_token
+GITHUB_TOKEN=your_github_token
 GITHUB_REPO=your_org/your_repo
 
 # Notifier (Tùy chọn)
@@ -210,6 +210,7 @@ File báo cáo sau khi sinh sẽ nằm tại `reports/MENTOR_REPORT_DRAFT.md` s�
 ## 📚 6. Tài liệu chi tiết trong `docs/`
 
 Vui lòng tham khảo các tài liệu chuyên sâu trong thư mục [`docs/`](docs/):
+* 🔄 [Tổng hợp 2 Biểu đồ Workflow cốt lõi](docs/WORKFLOWS.md) - Sơ đồ chi tiết 5 giai đoạn & Vòng lặp khép kín.
 * 📖 [Kiến trúc hệ thống chi tiết](docs/ARCHITECTURE.md) - Đặc tả luồng xử lý dữ liệu và Data Flow.
 * 📋 [Đặc tả bản báo cáo 4 mục](docs/REPORT_TEMPLATE_SPEC.md) - Quy chuẩn chỉ số và định dạng đầu ra.
 * 🔌 [Hướng dẫn tích hợp CVAT REST API](docs/CVAT_INTEGRATION_GUIDE.md) - Endpoint, Authenticate & Deep Linking.

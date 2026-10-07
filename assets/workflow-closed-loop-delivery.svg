@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" width="100%" height="100%" style="background:#1e1e1e; font-family:'Segoe UI', Inter, sans-serif;">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4fc3f7" />
+    </marker>
+    <marker id="arrow-loop" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ba68c8" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="45" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="bold" letter-spacing="1">KIẾN TRÚC VÒNG LẶP KHÉP KÍN &amp; ĐA KÊNH PHÂN PHỐI BÁO CÁO</text>
+  <text x="700" y="72" text-anchor="middle" fill="#9e9e9e" font-size="13">Hệ thống tự động hóa tổng hợp báo cáo CVAT &amp; GitHub Sync phục vụ phiên họp Mentor</text>
+
+  <!-- Column 1: Data Sources -->
+  <g transform="translate(50, 110)" filter="url(#shadow)">
+    <rect width="240" height="360" rx="10" fill="#252526" stroke="#0288d1" stroke-width="1.5"/>
+    <rect width="240" height="38" rx="10" fill="#0288d1" opacity="0.25"/>
+    <text x="120" y="24" text-anchor="middle" fill="#4fc3f7" font-size="14" font-weight="bold">1. NGUỒN DỮ LIỆU</text>
+    
+    <!-- Box CVAT -->
+    <rect x="15" y="55" width="210" height="130" rx="8" fill="#1e1e1e" stroke="#0288d1" stroke-width="1"/>
+    <text x="25" y="80" fill="#4fc3f7" font-size="14" font-weight="bold">CVAT REST API v2</text>
+    <text x="25" y="105" fill="#cccccc" font-size="12">• Tiến độ Tasks &amp; Jobs</text>
+    <text x="25" y="127" fill="#cccccc" font-size="12">• Báo cáo chất lượng QA/QC</text>
+    <text x="25" y="149" fill="#cccccc" font-size="12">• Issues &amp; Frame Annotations</text>
+    <text x="25" y="171" fill="#81d4fa" font-size="11">• URL Deep Link to Frames</text>
+
+    <!-- Box GitHub -->
+    <rect x="15" y="205" width="210" height="135" rx="8" fill="#1e1e1e" stroke="#0288d1" stroke-width="1"/>
+    <text x="25" y="230" fill="#4fc3f7" font-size="14" font-weight="bold">GitHub REST / GraphQL</text>
+    <text x="25" y="255" fill="#cccccc" font-size="12">• Commits &amp; Pull Requests</text>
+    <text x="25" y="277" fill="#cccccc" font-size="12">• Issues: ca-kho, blocker</text>
+    <text x="25" y="299" fill="#cccccc" font-size="12">• Thảo luận &amp; Q&amp;A kỹ thuật</text>
+    <text x="25" y="321" fill="#81d4fa" font-size="11">• Đề xuất cập nhật Guideline</text>
+  </g>
+
+  <!-- Column 2: Core Processing Engine -->
+  <g transform="translate(350, 110)" filter="url(#shadow)">
+    <rect width="280" height="360" rx="10" fill="#252526" stroke="#f57c00" stroke-width="1.5"/>
+    <rect width="280" height="38" rx="10" fill="#f57c00" opacity="0.25"/>
+    <text x="140" y="24" text-anchor="middle" fill="#ffb74d" font-size="14" font-weight="bold">2. BỘ XỬ LÝ TRUNG TÂM (ETL)</text>
+
+    <!-- Box Aggregator -->
+    <rect x="15" y="55" width="250" height="130" rx="8" fill="#1e1e1e" stroke="#f57c00" stroke-width="1"/>
+    <text x="25" y="80" fill="#ffb74d" font-size="14" font-weight="bold">Metric Aggregator</text>
+    <text x="25" y="105" fill="#cccccc" font-size="12">• Tính Velocity theo từng người</text>
+    <text x="25" y="127" fill="#cccccc" font-size="12">• Phân tích ma trận lỗi QA/QC</text>
+    <text x="25" y="149" fill="#cccccc" font-size="12">• Tính tỷ lệ % hoàn thành Batch</text>
+    <text x="25" y="171" fill="#ffe0b2" font-size="11">• Sinh Deep Link chuẩn hóa</text>
+
+    <!-- Box AI Assistant -->
+    <rect x="15" y="205" width="250" height="135" rx="8" fill="#1e1e1e" stroke="#f57c00" stroke-width="1"/>
+    <text x="25" y="230" fill="#ffb74d" font-size="14" font-weight="bold">Guideline Matcher &amp; LLM</text>
+    <text x="25" y="255" fill="#cccccc" font-size="12">• Đối chiếu quy chuẩn gán nhãn</text>
+    <text x="25" y="277" fill="#cccccc" font-size="12">• Lọc ca khó gây tranh cãi</text>
+    <text x="25" y="299" fill="#cccccc" font-size="12">• LLM tóm lược Executive Summary</text>
+    <text x="25" y="321" fill="#ffe0b2" font-size="11">• Gợi ý 3 câu hỏi cho Mentor</text>
+  </g>
+
+  <!-- Column 3: Outputs & Report Generation -->
+  <g transform="translate(690, 110)" filter="url(#shadow)">
+    <rect width="280" height="360" rx="10" fill="#252526" stroke="#388e3c" stroke-width="1.5"/>
+    <rect width="280" height="38" rx="10" fill="#388e3c" opacity="0.25"/>
+    <text x="140" y="24" text-anchor="middle" fill="#81c784" font-size="14" font-weight="bold">3. ĐẦU RA &amp; SOẠN THẢO</text>
+
+    <!-- Box Jinja2 Generator -->
+    <rect x="15" y="55" width="250" height="145" rx="8" fill="#1e1e1e" stroke="#388e3c" stroke-width="1"/>
+    <text x="25" y="80" fill="#81c784" font-size="14" font-weight="bold">Bản Nháp 4 Mục Chuẩn</text>
+    <text x="25" y="103" fill="#cccccc" font-size="12">1. Tiến độ Batch &amp; Vận tốc (f/h)</text>
+    <text x="25" y="123" fill="#cccccc" font-size="12">2. Chất lượng &amp; Điểm QA/QC</text>
+    <text x="25" y="143" fill="#cccccc" font-size="12">3. Ca khó kèm Deep Link CVAT</text>
+    <text x="25" y="163" fill="#cccccc" font-size="12">4. Câu hỏi mở cần Mentor gỡ rối</text>
+    <text x="25" y="185" fill="#c8e6c9" font-size="11">→ MENTOR_REPORT_DRAFT.md</text>
+
+    <!-- Box Dashboard -->
+    <rect x="15" y="220" width="250" height="120" rx="8" fill="#1e1e1e" stroke="#388e3c" stroke-width="1"/>
+    <text x="25" y="245" fill="#81c784" font-size="14" font-weight="bold">Interactive Analytics Data</text>
+    <text x="25" y="270" fill="#cccccc" font-size="12">• Xuất dữ liệu sạch .json / .csv</text>
+    <text x="25" y="292" fill="#cccccc" font-size="12">• Sẵn sàng tích hợp Dashboard</text>
+    <text x="25" y="314" fill="#cccccc" font-size="12">• Trực quan hóa tiến độ theo kỳ</text>
+  </g>
+
+  <!-- Column 4: Multi-Channel Delivery -->
+  <g transform="translate(1030, 110)" filter="url(#shadow)">
+    <rect width="320" height="360" rx="10" fill="#252526" stroke="#fbc02d" stroke-width="1.5"/>
+    <rect width="320" height="38" rx="10" fill="#fbc02d" opacity="0.25"/>
+    <text x="160" y="24" text-anchor="middle" fill="#fff176" font-size="14" font-weight="bold">4. ĐA KÊNH PHÂN PHỐI &amp; ALERT</text>
+
+    <!-- Channels items -->
+    <g transform="translate(15, 55)">
+      <rect width="290" height="60" rx="8" fill="#1e1e1e" stroke="#fbc02d" stroke-width="1"/>
+      <text x="15" y="26" fill="#fff176" font-size="13" font-weight="bold">📱 Telegram Bot Alert</text>
+      <text x="15" y="46" fill="#cccccc" font-size="11">Bắn tin nhắn tóm tắt KPI + link bản nháp</text>
+    </g>
+
+    <g transform="translate(15, 125)">
+      <rect width="290" height="60" rx="8" fill="#1e1e1e" stroke="#fbc02d" stroke-width="1"/>
+      <text x="15" y="26" fill="#fff176" font-size="13" font-weight="bold">💬 Discord / Slack Webhook</text>
+      <text x="15" y="46" fill="#cccccc" font-size="11">Rich embed thông báo Team Lead</text>
+    </g>
+
+    <g transform="translate(15, 195)">
+      <rect width="290" height="65" rx="8" fill="#1e1e1e" stroke="#fbc02d" stroke-width="1"/>
+      <text x="15" y="26" fill="#fff176" font-size="13" font-weight="bold">🐙 GitHub PR / Issue Auto-create</text>
+      <text x="15" y="46" fill="#cccccc" font-size="11">Tự động mở PR kèm bản nháp báo cáo</text>
+    </g>
+
+    <g transform="translate(15, 270)">
+      <rect width="290" height="65" rx="8" fill="#1e1e1e" stroke="#fbc02d" stroke-width="1"/>
+      <text x="15" y="26" fill="#fff176" font-size="13" font-weight="bold">📧 Email Dispatch (SMTP)</text>
+      <text x="15" y="46" fill="#cccccc" font-size="11">Gửi bản tóm tắt trang trọng cho Mentor</text>
+    </g>
+  </g>
+
+  <!-- Connecting Arrows Between Columns -->
+  <line x1="290" y1="200" x2="345" y2="200" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="290" y1="320" x2="345" y2="320" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="630" y1="220" x2="685" y2="220" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="630" y1="300" x2="685" y2="300" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="970" y1="220" x2="1025" y2="220" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Bottom: 5. Closed Feedback Loop -->
+  <g transform="translate(50, 520)" filter="url(#shadow)">
+    <rect width="1300" height="220" rx="10" fill="#252526" stroke="#ab47bc" stroke-width="1.5"/>
+    <rect width="1300" height="38" rx="10" fill="#ab47bc" opacity="0.25"/>
+    <text x="650" y="24" text-anchor="middle" fill="#e1bee7" font-size="15" font-weight="bold">5. VÒNG LẶP KHÉP KÍN (CLOSED FEEDBACK LOOP &amp; CONTINUOUS IMPROVEMENT)</text>
+
+    <!-- Sub-step 1: Review -->
+    <rect x="30" y="60" width="360" height="130" rx="8" fill="#1e1e1e" stroke="#ba68c8" stroke-width="1"/>
+    <text x="45" y="90" fill="#e1bee7" font-size="14" font-weight="bold">Nhóm Trưởng Review (5-10 phút)</text>
+    <text x="45" y="115" fill="#cccccc" font-size="12">• Kiểm tra các số liệu tự động</text>
+    <text x="45" y="137" fill="#cccccc" font-size="12">• Bổ sung ngữ cảnh &amp; sắp xếp ưu tiên</text>
+    <text x="45" y="159" fill="#ce93d8" font-size="11">→ Chốt báo cáo gửi Mentor trước buổi họp</text>
+
+    <!-- Sub-step 2: Meeting -->
+    <rect x="470" y="60" width="360" height="130" rx="8" fill="#1e1e1e" stroke="#ba68c8" stroke-width="1"/>
+    <text x="485" y="90" fill="#e1bee7" font-size="14" font-weight="bold">Phiên Họp Mentor</text>
+    <text x="485" y="115" fill="#cccccc" font-size="12">• Đi thẳng vào 4 mục báo cáo chuẩn</text>
+    <text x="485" y="137" fill="#cccccc" font-size="12">• Mentor bấm Deep Link thẩm định trực tiếp</text>
+    <text x="485" y="159" fill="#ce93d8" font-size="11">→ Chốt phán quyết chính thức cho ca khó</text>
+
+    <!-- Sub-step 3: Sync back -->
+    <rect x="910" y="60" width="360" height="130" rx="8" fill="#1e1e1e" stroke="#ba68c8" stroke-width="1"/>
+    <text x="925" y="90" fill="#e1bee7" font-size="14" font-weight="bold">Đồng Bộ Ngược (Sync Back)</text>
+    <text x="925" y="115" fill="#cccccc" font-size="12">• Cập nhật nhãn sửa đổi trên CVAT</text>
+    <text x="925" y="137" fill="#cccccc" font-size="12">• Tự động mở PR cập nhật docs/guideline.md</text>
+    <text x="925" y="159" fill="#ce93d8" font-size="11">→ Tối ưu hóa quy trình cho các batch tiếp theo</text>
+
+    <!-- Flow in loop -->
+    <line x1="390" y1="125" x2="465" y2="125" stroke="#ba68c8" stroke-width="2" marker-end="url(#arrow-loop)"/>
+    <line x1="830" y1="125" x2="905" y2="125" stroke="#ba68c8" stroke-width="2" marker-end="url(#arrow-loop)"/>
+  </g>
+
+  <!-- Loop back arrow to Data Sources -->
+  <path d="M 1200 520 L 1200 480 L 170 480 L 170 475" fill="none" stroke="#ba68c8" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-loop)"/>
+</svg>

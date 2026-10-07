@@ -18,9 +18,9 @@
 
 | Thành viên (Assignee) | Số Job | Frames xong | Tỷ lệ (%) | Vận tốc (f/h) | Trạng thái |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| Dinh Cong Minh (Lead) | 4 | 850 / 850 | 100% | 45.0 |  Hoàn thành |
-| Nguyen Van A | 4 | 720 / 850 | 84.7% | 38.2 |  Đang gán |
-| Tran Thi B | 3 | 510 / 850 | 60.0% | 27.5 | ⚠️ Chậm nhẹ (Gặp ca khó) |
+| Team Lead (Member A) | 4 | 850 / 850 | 100% | 45.0 |  Hoàn thành |
+| Annotator B | 4 | 720 / 850 | 84.7% | 38.2 |  Đang gán |
+| Annotator C | 3 | 510 / 850 | 60.0% | 27.5 | ⚠️ Chậm nhẹ (Gặp ca khó) |
 | **Tổng thể đợt** | **11** | **2,080 / 2,550** | **81.6%** | **36.7** | **ĐẠT TIẾN ĐỘ** |
 
 ---
@@ -51,9 +51,9 @@ Dưới đây là 3 ca khó gây tranh cãi lớn nhất trong tuần cần Ment
 
 | STT | Frame ID | Vấn đề biên (Edge Case) | Tranh chấp & Đề xuất | CVAT Deep Link |
 | :---: | :---: | :--- | :--- | :---: |
-| 1 | **Frame #142**<br>(Job 1719) | **Cáp sạc vắt ngang qua xe khác**<br>Ô tô điện đỗ ở ô 1 nhưng kéo cáp từ trụ 2 sang để sạc; ô 2 có xe khác đỗ che | • **Ý kiến 1**: Gán xe ô 1 là `charging`, ô 2 là `blocked`.<br>• **Ý kiến 2**: Gán cả hai xe là `charging_dispute`.<br>👉 *Nhóm đề xuất*: Áp dụng Ý kiến 1 theo nguyên tắc căn cứ đầu súng sạc. | [🔗 Mở Frame 142](https://cvat.transformerlabs.ai/tasks/217/jobs/1719?frame=142) |
-| 2 | **Frame #205**<br>(Job 1720) | **Xe tải giao hàng che khuất >70%**<br>Xe tải đậu dừng trả hàng chắn camera, chỉ thấy 1 góc cản sau xe điện | • Hiện tại guideline chưa quy định ngưỡng che khuất tối đa.<br>👉 *Nhóm đề xuất*: Kích hoạt quy tắc `Abstain` (Bỏ qua không vẽ box) nếu vật thể bị che khuất quá 70% diện tích. | [🔗 Mở Frame 205](https://cvat.transformerlabs.ai/tasks/217/jobs/1720?frame=205) |
-| 3 | **Frame #389**<br>(Job 1722) | **Đèn pha xe đối diện gây lóa LED trụ sạc**<br>Lóa sáng khiến đèn LED trụ sạc xanh dương bị ngả sang xanh lá | • Cần thống nhất quy tắc kiểm tra temporal: rà soát 3 frame trước và sau để xác định trạng thái thực. | [🔗 Mở Frame 389](https://cvat.transformerlabs.ai/tasks/217/jobs/1722?frame=389) |
+| 1 | **Frame #142**<br>(Job 1719) | **Cáp sạc vắt ngang qua xe khác**<br>Ô tô điện đỗ ở ô 1 nhưng kéo cáp từ trụ 2 sang để sạc; ô 2 có xe khác đỗ che | • **Ý kiến 1**: Gán xe ô 1 là `charging`, ô 2 là `blocked`.<br>• **Ý kiến 2**: Gán cả hai xe là `charging_dispute`.<br>👉 *Nhóm đề xuất*: Áp dụng Ý kiến 1 theo nguyên tắc căn cứ đầu súng sạc. | [🔗 Mở Frame 142](https://cvat.example.org/tasks/217/jobs/1719?frame=142) |
+| 2 | **Frame #205**<br>(Job 1720) | **Xe tải giao hàng che khuất >70%**<br>Xe tải đậu dừng trả hàng chắn camera, chỉ thấy 1 góc cản sau xe điện | • Hiện tại guideline chưa quy định ngưỡng che khuất tối đa.<br>👉 *Nhóm đề xuất*: Kích hoạt quy tắc `Abstain` (Bỏ qua không vẽ box) nếu vật thể bị che khuất quá 70% diện tích. | [🔗 Mở Frame 205](https://cvat.example.org/tasks/217/jobs/1720?frame=205) |
+| 3 | **Frame #389**<br>(Job 1722) | **Đèn pha xe đối diện gây lóa LED trụ sạc**<br>Lóa sáng khiến đèn LED trụ sạc xanh dương bị ngả sang xanh lá | • Cần thống nhất quy tắc kiểm tra temporal: rà soát 3 frame trước và sau để xác định trạng thái thực. | [🔗 Mở Frame 389](https://cvat.example.org/tasks/217/jobs/1722?frame=389) |
 
 ---
 
