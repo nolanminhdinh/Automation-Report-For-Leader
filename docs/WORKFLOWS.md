@@ -132,7 +132,97 @@ flowchart TD
 
 ---
 
+## 🏛️ Biểu Đồ 3: Mô Hình Hybrid — Python ETL Engine & Power BI Analytics Dashboard
+
+Biểu đồ này mô tả chi tiết sự phân công phối hợp giữa **Python Engine** (phụ trách trích xuất API, tính toán logic và soạn thảo văn bản) và **Power BI Dashboard** (phụ trách trực quan hóa số liệu KPI, drill-down và hiển thị danh mục ca khó kèm link):
+
+```mermaid
+flowchart TD
+    classDef src fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
+    classDef py fill:#FFF3E0,stroke:#F57C00,stroke-width:2px;
+    classDef pbi fill:#FFFDE7,stroke:#FBC02D,stroke-width:2px;
+    classDef out fill:#E8F5E9,stroke:#388E3C,stroke-width:2px;
+
+    subgraph Layer1 ["1. NGUỒN DỮ LIỆU ĐẦU VÀO"]
+        CVAT["CVAT REST API v2<br/>(Tasks, Jobs, QA Scores, Issues)"]:::src
+        GH["GitHub REST API<br/>(Issues ca-kho, Commits, PRs)"]:::src
+    end
+
+    subgraph Layer2 ["2. PYTHON BACKEND & ETL ENGINE"]
+        Extractor["API Extractor Module<br/>(Xử lý phân trang & Bearer Auth)"]:::py
+        Processor["Metric Processor & Aggregator<br/>• Gom tiến độ theo Batch<br/>• Tính QA Score & Vận tốc<br/>• Sinh Deep Link CVAT Job/Frame"]:::py
+        ReportGen["Report Generator (Jinja2 / LLM)<br/>• Bản nháp MENTOR_REPORT_DRAFT.md"]:::py
+        CSVExport["Power BI Data Exporter<br/>• Xuất data/processed/*.csv"]:::py
+    end
+
+    subgraph Layer3 ["3. POWER BI DASHBOARD (DATA VIZ LAYER)"]
+        Page1["Page 1: Tổng Quan Tiến Độ Batch<br/>(KPI Cards, Gauge, Velocity)"]:::pbi
+        Page2["Page 2: Phân Tích Điểm QA/QC<br/>(Leaderboard, Ma trận 4 loại lỗi)"]:::pbi
+        Page3["Page 3: Ca Khó & Deep-Link Explorer<br/>(Bảng ca khó + URL mở CVAT trực tiếp)"]:::pbi
+    end
+
+    subgraph Layer4 ["4. ĐẦU RA PHỤC VỤ PHIÊN MENTOR"]
+        DraftDoc["Văn Bản Báo Cáo (.md / .pdf)<br/>• Gửi trước cho Leader & Mentor"]:::out
+        LiveViz["Giao Diện Trực Quan Power BI<br/>• Trình chiếu số liệu trong buổi họp"]:::out
+    end
+
+    CVAT & GH --> Extractor
+    Extractor --> Processor
+    Processor --> ReportGen & CSVExport
+    CSVExport -->|Nạp dữ liệu sạch| Page1 & Page2 & Page3
+    ReportGen --> DraftDoc
+    Page1 & Page2 & Page3 --> LiveViz
+```
+
+---
+
+## ⏰ Biểu Đồ 4: Luồng Hoạt Động Tự Động Hóa Theo Lịch (Scheduled Pipeline Automation)
+
+Biểu đồ này mô tả luồng thực thi tự động định kỳ qua **GitHub Actions Cron Scheduler**, từ thời điểm kích hoạt không người lái đến khi đẩy dữ liệu lên repo và phát thông báo qua Telegram/Discord:
+
+```mermaid
+flowchart TD
+    classDef trigger fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
+    classDef runner fill:#FFF3E0,stroke:#F57C00,stroke-width:2px;
+    classDef data fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px;
+    classDef notify fill:#E8F5E9,stroke:#388E3C,stroke-width:2px;
+
+    subgraph TriggerZone ["1. BỘ ĐẾM GIỜ & KÍCH HOẠT"]
+        CronWk["⏰ Cron Schedule: Thứ 6 (17:00 ICT) & Chủ Nhật (20:00 ICT)"]:::trigger
+        ManualWk["👆 Workflow Dispatch: Kích hoạt thủ công khi cần gấp"]:::trigger
+    end
+
+    subgraph CloudRunner ["2. GITHUB ACTIONS CLOUD RUNNER"]
+        Setup["Setup Python 3.10 & Cài đặt requirements.txt"]:::runner
+        FetchRun["Gọi CVAT REST API & GitHub API với Secrets an toàn"]:::runner
+        Compute["Xử lý số liệu, tính điểm QA & gom danh sách ca khó"]:::runner
+    end
+
+    subgraph ArtifactSync ["3. ĐỒNG BỘ HIỆN VẬT & POWER BI"]
+        SaveCSVs["Cập nhật data/processed/*.csv cho Power BI"]:::data
+        SaveReport["Sinh file reports/MENTOR_REPORT_DRAFT.md"]:::data
+        GitCommit["Auto Git Commit & Push lên branch main [skip ci]"]:::data
+    end
+
+    subgraph DispatchNotice ["4. PHÂN PHỐI THÔNG BÁO TỨC THỜI"]
+        TgBot["📱 Telegram Bot: Bắn tóm tắt KPI & Link báo cáo"]:::notify
+        DcBot["💬 Discord Webhook: Ping kênh thông báo nhóm"]:::notify
+        LeadAction["👤 Nhóm Trưởng: Xem báo cáo, mở Power BI, sẵn sàng họp Mentor"]:::notify
+    end
+
+    CronWk & ManualWk --> Setup
+    Setup --> FetchRun
+    FetchRun --> Compute
+    Compute --> SaveCSVs & SaveReport
+    SaveCSVs & SaveReport --> GitCommit
+    GitCommit --> TgBot & DcBot
+    TgBot & DcBot --> LeadAction
+```
+
+---
+
 ## 🛡️ Cam Kết Bảo Mật & Toàn Vẹn Dữ Liệu
 
 1. **Không chứa thông tin mật bên thứ ba**: Mọi dữ liệu mẫu, đường dẫn máy chủ và thông số định danh trong biểu đồ đều được chuẩn hóa theo chuẩn mở tổng quát (Generic Open Standards), không chứa token, bí mật doanh nghiệp, mã học viên hay thông tin nội bộ của bất kỳ tổ chức nào.
 2. **Tuân thủ quy chuẩn bảo mật**: Quá trình trích xuất chỉ đọc metadata thống kê, không lưu giữ dữ liệu nhận dạng cá nhân (PII) trên đường ống báo cáo.
+

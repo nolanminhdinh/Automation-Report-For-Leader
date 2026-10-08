@@ -173,6 +173,20 @@ sequenceDiagram
   * **Telegram Bot API**: Tin nhắn Markdown kèm inline button trỏ đến file Draft.
   * **Discord Webhook**: Embed message màu sắc trực quan (Xanh nếu đạt KPI, Đỏ nếu trễ hạn hoặc QA thấp).
 
+### 3.5. Power BI Exporter Layer (`src/exporters/`)
+* Xem chi tiết tại: [Kiến Trúc Mô Hình Hybrid Power BI](HYBRID_POWERBI_ARCHITECTURE.md)
+* Xuất các tập dữ liệu sạch dạng `.csv` / `.parquet` vào `data/processed/`:
+  * `batch_progress.csv`: Gom tiến độ, % hoàn thành, vận tốc gán nhãn theo từng lô.
+  * `qa_metrics.csv`: Điểm QA/QC, tỷ lệ pass/rework, ma trận 4 nhóm lỗi kỹ thuật.
+  * `edge_cases.csv`: Danh mục ca khó kèm Deep Link mở trực tiếp frame CVAT.
+
+### 3.6. Scheduled Ingestion & Cloud Automation Layer
+* Xem chi tiết tại: [Hướng Dẫn Luồng Tự Động Hóa Theo Lịch](SCHEDULED_WORKFLOW_GUIDE.md)
+* Thiết lập qua GitHub Actions Cron:
+  * `0 10 * * 5`: 17:00 Thứ 6 (UTC+7) - Tổng kết tiến độ tuần.
+  * `0 13 * * 0`: 20:00 Chủ Nhật (UTC+7) - Chốt số liệu và soạn thảo báo cáo trước phiên Mentor đầu tuần.
+  * Tự động commit dataset cập nhật và thông báo tới kênh chat của nhóm.
+
 ---
 
 ## 4. An toàn dữ liệu & Quản lý Token (Security)
@@ -183,3 +197,4 @@ sequenceDiagram
 2. **Quản trị Bí mật (Secrets Management)**:
    * Mọi Token (`CVAT_TOKEN`, `GITHUB_TOKEN`, `TELEGRAM_BOT_TOKEN`) tuyệt đối không hardcode trong mã nguồn.
    * Chỉ được nạp thông qua biến môi trường (`.env` trên local hoặc `GitHub Secrets` trên CI/CD).
+

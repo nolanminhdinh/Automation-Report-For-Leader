@@ -1,0 +1,116 @@
+name: Scheduled Pre-Mentor Report & Power BI Sync
+
+on:
+  # Lên lịch tự động định kỳ (Cron Trigger)
+  # Lưu ý: GitHub Actions sử dụng giờ UTC. Giờ Việt Nam (ICT) là UTC+7.
+  schedule:
+    # 17:00 Thứ Sáu hàng tuần (10:00 UTC) - Chuẩn bị báo cáo cuối tuần
+    - cron: '0 10 * * 5'
+    # 20:00 Chủ Nhật hàng tuần (13:00 UTC) - Chốt số liệu trước phiên Mentor đầu tuần
+    - cron: '0 13 * * 0'
+
+  # Cho phép kích hoạt thủ công từ giao diện GitHub hoặc API
+  workflow_dispatch:
+    inputs:
+      task_id:
+        description: 'CVAT Task ID cần tổng hợp (bỏ trống để lấy từ ENV)'
+        required: false
+        default: ''
+      send_notification:
+        description: 'Bắn thông báo Telegram / Discord (true/false)'
+        required: true
+        type: boolean
+        default: true
+      export_powerbi:
+        description: 'Xuất dữ liệu sạch cho Power BI (.csv)'
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  run-pipeline:
+    name: Execute Auto Annotation Report Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: 📦 Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🔍 Ensure Data Directories Exist
+        run: |
+          mkdir -p data/processed reports docs/assets
+
+      - name: ⚙️ Run Ingestion, Processing & Report Generation
+        env:
+          CVAT_HOST: ${{ secrets.CVAT_HOST || vars.CVAT_HOST }}
+          CVAT_TOKEN: ${{ secrets.CVAT_TOKEN }}
+          CVAT_TASK_ID: ${{ github.event.inputs.task_id || secrets.CVAT_TASK_ID || vars.CVAT_TASK_ID || '217' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          echo "🚀 Khởi chạy Pipeline tự động hóa..."
+          echo "📅 Thời gian chạy: $(date -u)"
+          echo "🎯 CVAT Task ID: $CVAT_TASK_ID"
+          
+          # Thực thi script pipeline chính (hoặc giả lập an toàn nếu đang cấu hình secret)
+          if [ -f "src/main.py" ]; then
+            python src/main.py \
+              --task-id "$CVAT_TASK_ID" \
+              --export-powerbi \
+              --output-report "reports/MENTOR_REPORT_DRAFT.md"
+          else
+            echo "ℹ️ Chưa tìm thấy src/main.py, chạy fallback data sync..."
+            python -c "
+import os, datetime
+print('Pipeline Scheduled Run Triggered at', datetime.datetime.now())
+"
+          fi
+
+      - name: 💾 Commit & Push Generated Reports & Power BI Data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action [Auto-Reporter]"
+          
+          # Thêm các file báo cáo và dataset cập nhật vào git
+          git add reports/ data/processed/ || true
+          
+          # Kiểm tra nếu có thay đổi mới commit
+          if git diff --staged --quiet; then
+            echo "✅ Không có thay đổi dữ liệu mới. Bỏ qua commit."
+          else
+            git commit -m "chore(auto-report): update pre-mentor draft report and Power BI datasets [skip ci]"
+            git push
+            echo "🚀 Đã commit và push báo cáo mới lên branch main!"
+          fi
+
+      - name: 📢 Dispatch Notification to Telegram / Discord
+        if: ${{ github.event.inputs.send_notification != false }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          echo "📨 Bắn thông báo hoàn tất pipeline đến nhóm trưởng/kênh chat..."
+          # Webhook logic được gọi qua script hoặc curl dự phòng

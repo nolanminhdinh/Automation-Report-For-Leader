@@ -3,10 +3,12 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![CVAT API](https://img.shields.io/badge/CVAT-REST%20API%20v2-green?logo=opencv)](https://www.cvat.ai/)
 [![GitHub API](https://img.shields.io/badge/GitHub-REST%20%26%20GraphQL-black?logo=github)](https://docs.github.com/en/rest)
+[![Power BI](https://img.shields.io/badge/Power_BI-Analytics_Dashboard-F2C811?logo=powerbi&logoColor=black)](docs/HYBRID_POWERBI_ARCHITECTURE.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Automation](https://img.shields.io/badge/Workflow-GitHub%20Actions-blueviolet?logo=githubactions)](https://github.com/features/actions)
+[![Automation](https://img.shields.io/badge/Workflow-GitHub%20Actions-blueviolet?logo=githubactions)](docs/SCHEDULED_WORKFLOW_GUIDE.md)
 
-> **Hệ thống tự động hóa tổng hợp báo cáo tiến độ & chất lượng gán nhãn dữ liệu (Data Annotation) từ CVAT và GitHub để định kỳ báo cáo Tech Lead / Project Manager / Mentor.**
+> **Hệ sinh thái tự động hóa tổng hợp báo cáo tiến độ & chất lượng gán nhãn dữ liệu (Data Annotation Operations) từ CVAT và GitHub. Ứng dụng mô hình Hybrid kết hợp Python ETL Engine, Dashboard Power BI trực quan và luồng kích hoạt theo lịch định kỳ phục vụ các phiên Mentor & Leader.**
+
 
 ---
 
@@ -210,13 +212,16 @@ File báo cáo sau khi sinh sẽ nằm tại `reports/MENTOR_REPORT_DRAFT.md` s�
 ## 📚 6. Tài liệu chi tiết trong `docs/`
 
 Vui lòng tham khảo các tài liệu chuyên sâu trong thư mục [`docs/`](docs/):
-* 🔄 [Tổng hợp 2 Biểu đồ Workflow cốt lõi](docs/WORKFLOWS.md) - Sơ đồ chi tiết 5 giai đoạn & Vòng lặp khép kín.
+* 🏛️ [Kiến trúc Mô hình Hybrid Power BI](docs/HYBRID_POWERBI_ARCHITECTURE.md) - Chi tiết luồng Python ETL kết hợp Power BI Dashboard.
+* ⏰ [Hướng dẫn Vận hành Luồng Theo Lịch](docs/SCHEDULED_WORKFLOW_GUIDE.md) - Cấu hình GitHub Actions Cron & Secrets.
+* 🔄 [Tổng hợp 4 Biểu đồ Workflow cốt lõi](docs/WORKFLOWS.md) - 5 giai đoạn, Vòng lặp khép kín, Hybrid Power BI & Scheduled Dispatcher.
 * 📖 [Kiến trúc hệ thống chi tiết](docs/ARCHITECTURE.md) - Đặc tả luồng xử lý dữ liệu và Data Flow.
 * 📋 [Đặc tả bản báo cáo 4 mục](docs/REPORT_TEMPLATE_SPEC.md) - Quy chuẩn chỉ số và định dạng đầu ra.
 * 🔌 [Hướng dẫn tích hợp CVAT REST API](docs/CVAT_INTEGRATION_GUIDE.md) - Endpoint, Authenticate & Deep Linking.
 * 🐙 [Hướng dẫn tích hợp GitHub API](docs/GITHUB_INTEGRATION_GUIDE.md) - Labeling, Actions & Pull Request Draft.
 * ⚙️ [Hướng dẫn Triển khai & Vận hành](docs/DEPLOYMENT_AND_WORKFLOW.md) - Cron setup, GitHub Actions & Webhook.
 * 📝 [Bản báo cáo mẫu thực tế](docs/MENTOR_REPORT_DRAFT_SAMPLE.md) - Mẫu báo cáo hoàn chỉnh được xuất ra.
+
 
 ---
 
