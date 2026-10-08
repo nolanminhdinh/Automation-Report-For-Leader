@@ -1,11 +1,13 @@
-# 📊 Auto Annotation Report Pipeline (CVAT & GitHub Sync)
+# 🚀 auto-annotation-reporter
+
+### 📊 Pipeline Tự Động Hóa Báo Cáo Gán Nhãn Dữ Liệu (CVAT & GitHub Sync)
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
 [![CVAT API](https://img.shields.io/badge/CVAT-REST%20API%20v2-green?logo=opencv)](https://www.cvat.ai/)
 [![GitHub API](https://img.shields.io/badge/GitHub-REST%20%26%20GraphQL-black?logo=github)](https://docs.github.com/en/rest)
-[![Power BI](https://img.shields.io/badge/Power_BI-Analytics_Dashboard-F2C811?logo=powerbi&logoColor=black)](docs/HYBRID_POWERBI_ARCHITECTURE.md)
+[![Power BI](https://img.shields.io/badge/Power_BI-Analytics_Dashboard-F2C811?logo=powerbi&logoColor=black)](docs/01-architecture/HYBRID_POWERBI_ARCHITECTURE.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Automation](https://img.shields.io/badge/Workflow-GitHub%20Actions-blueviolet?logo=githubactions)](docs/SCHEDULED_WORKFLOW_GUIDE.md)
+[![Automation](https://img.shields.io/badge/Workflow-GitHub%20Actions-blueviolet?logo=githubactions)](docs/04-devops-automation/SCHEDULED_WORKFLOW_GUIDE.md)
 
 > **Hệ sinh thái tự động hóa tổng hợp báo cáo tiến độ & chất lượng gán nhãn dữ liệu (Data Annotation Operations) từ CVAT và GitHub. Ứng dụng mô hình Hybrid kết hợp Python ETL Engine, Dashboard Power BI trực quan và luồng kích hoạt theo lịch định kỳ phục vụ các phiên Mentor & Leader.**
 
@@ -165,8 +167,8 @@ flowchart LR
 
 ```bash
 # Clone repository
-git clone https://github.com/nolanminhdinh/Auto-Annotation-Reporter.git
-cd Auto-Annotation-Reporter
+git clone https://github.com/nolanminhdinh/auto-annotation-reporter.git
+cd auto-annotation-reporter
 
 # Tạo môi trường ảo
 python -m venv .venv
@@ -285,20 +287,9 @@ File báo cáo sau khi sinh sẽ nằm tại `reports/MENTOR_REPORT_DRAFT.md` s�
   * ⏱️ [`TIMELINE_CONG_VIEC.md`](reports/weekly/week-01/TIMELINE_CONG_VIEC.md): Timeline chi tiết từng ngày của 5 thành viên trong tuần 1.
   * 📊 [`BAO_CAO_TUAN_01.md`](reports/weekly/week-01/BAO_CAO_TUAN_01.md): Báo cáo công việc đã hoàn thành, việc chưa xong & 3 cải tiến sản phẩm quan trọng kèm căn cứ kỹ thuật.
 
-## 💡 7. Gợi ý đổi tên Repository
-
-Tên hiện tại `Automation-Report-For-Leader` có thể đổi thành các tên sau để tăng tính chuyên nghiệp, chuẩn kỹ thuật quốc tế:
-
-| Tên đề xuất | Ý nghĩa & Phù hợp |
-| :--- | :--- |
-| **`auto-annotation-reporter`** *(Khuyên dùng)* | Tên ngắn gọn, nêu bật chức năng báo cáo tự động cho dự án gán nhãn |
-| **`cvat-mentor-report-pipeline`** | Nhấn mạnh trực tiếp vào CVAT và đối tượng nhận báo cáo là Mentor |
-| **`annotation-ops-reporter`** | Chuẩn hóa theo xu hướng MLOps / DataOps trong công nghiệp AI |
-| **`cvat-github-sync-reporter`** | Nhấn mạnh năng lực đồng bộ hai chiều giữa CVAT và GitHub |
-
 ---
 
-## 👥 Nhóm phát triển & Giấy phép
+## 👥 7. Nhóm phát triển & Giấy phép
 * **Đinh Công Minh** ([@nolanminhdinh](https://github.com/nolanminhdinh)) - *Project Lead & BI Architect* (Nghiệp vụ, Thiết kế Báo cáo, Nghiệm thu & UAT)
 * **Nguyễn Minh Tú** - *Data Integration Engineer* (CVAT API Tasks/Jobs/Annotations)
 * **Vũ Trường Duy** - *Data Integration Engineer* (CVAT Quality API & GitHub API)
