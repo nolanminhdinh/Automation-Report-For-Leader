@@ -136,8 +136,13 @@ flowchart TD
 
 Biểu đồ này mô tả chi tiết sự phân công phối hợp giữa **Python Engine** (phụ trách trích xuất API, tính toán logic và soạn thảo văn bản) và **Power BI Dashboard** (phụ trách trực quan hóa số liệu KPI, drill-down và hiển thị danh mục ca khó kèm link):
 
+![Sơ đồ Mô hình Hybrid Power BI](../assets/workflow-hybrid-powerbi.svg)
+
+### Mã nguồn Mermaid (Biểu đồ 3):
+
 ```mermaid
 flowchart TD
+
     classDef src fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
     classDef py fill:#FFF3E0,stroke:#F57C00,stroke-width:2px;
     classDef pbi fill:#FFFDE7,stroke:#FBC02D,stroke-width:2px;
@@ -180,8 +185,13 @@ flowchart TD
 
 Biểu đồ này mô tả luồng thực thi tự động định kỳ qua **GitHub Actions Cron Scheduler**, từ thời điểm kích hoạt không người lái đến khi đẩy dữ liệu lên repo và phát thông báo qua Telegram/Discord:
 
+![Sơ đồ Luồng Hoạt Động Theo Lịch](../assets/workflow-scheduled-automation.svg)
+
+### Mã nguồn Mermaid (Biểu đồ 4):
+
 ```mermaid
 flowchart TD
+
     classDef trigger fill:#E1F5FE,stroke:#0288D1,stroke-width:2px;
     classDef runner fill:#FFF3E0,stroke:#F57C00,stroke-width:2px;
     classDef data fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px;

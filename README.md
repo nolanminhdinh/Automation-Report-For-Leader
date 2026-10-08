@@ -74,7 +74,18 @@ flowchart LR
     class REV review;
 ```
 
+### 🏛️ Mô Hình Hybrid: Python ETL Engine & Power BI Analytics Dashboard
+![Mô hình Hybrid Power BI](assets/workflow-hybrid-powerbi.svg)
+
+> 💡 *Chi tiết hợp đồng dữ liệu 3 bảng CSV và thiết kế giao diện Power BI: Xem [docs/HYBRID_POWERBI_ARCHITECTURE.md](docs/HYBRID_POWERBI_ARCHITECTURE.md)*
+
+### ⏰ Luồng Hoạt Động Tự Động Hóa Theo Lịch (Scheduled Dispatcher)
+![Luồng hoạt động theo lịch](assets/workflow-scheduled-automation.svg)
+
+> 💡 *Chi tiết cấu hình GitHub Actions Cron và Secrets: Xem [docs/SCHEDULED_WORKFLOW_GUIDE.md](docs/SCHEDULED_WORKFLOW_GUIDE.md)*
+
 ---
+
 
 ## ⚡ 3. Chi tiết 5 Giai đoạn cốt lõi
 

@@ -19,8 +19,13 @@ Trong các dự án thị giác máy tính quy mô lớn, việc chỉ dùng đ�
 
 ## 2. Sơ Đồ Kiến Trúc Mô Hình Hybrid (Hybrid Data Flow)
 
+![Sơ đồ Mô hình Hybrid Power BI](../assets/workflow-hybrid-powerbi.svg)
+
+### Mã nguồn Mermaid:
+
 ```mermaid
 flowchart TD
+
     subgraph DataSources ["1. Tầng Thu Thập Dữ Liệu (Data Sources)"]
         CVAT["CVAT REST API v2<br/>• Tasks, Jobs, Assignees<br/>• Quality Reports & QA Scores<br/>• Frame Issues & Annotator Comments"]
         GH["GitHub API v3<br/>• Issues (ca-kho, blocker)<br/>• Commits, PRs & Discussions"]

@@ -11,7 +11,10 @@ Hệ thống hỗ trợ 2 phương thức kích hoạt theo lịch định kỳ:
 1. **Cloud-Native Automation (GitHub Actions Cron)**: Chạy hoàn toàn tự động trên hạ tầng máy chủ của GitHub, không đòi hỏi máy tính cá nhân phải mở 24/7.
 2. **Local Fallback Scheduler (Python Cron / Windows Task Scheduler)**: Dự phòng khi môi trường thử nghiệm CVAT chỉ chạy trong mạng nội bộ (mạng LAN/VPN) mà GitHub bên ngoài không thể truy cập.
 
+![Sơ đồ Luồng Hoạt Động Theo Lịch](../assets/workflow-scheduled-automation.svg)
+
 ---
+
 
 ## 2. Cấu Hình Lịch Chạy Định Kỳ (GitHub Actions Cron)
 
