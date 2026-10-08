@@ -223,6 +223,8 @@ File báo cáo sau khi sinh sẽ nằm tại `reports/MENTOR_REPORT_DRAFT.md` s�
 ## 📚 6. Tài liệu chi tiết trong `docs/`
 
 Vui lòng tham khảo các tài liệu chuyên sâu trong thư mục [`docs/`](docs/):
+* 📊 [Đặc tả Dữ liệu & Bộ Chỉ số Báo cáo (Analytics Spec)](docs/PROJECT_ANALYTICS_SPEC.md) - Data Dictionary, Data Model, Mindmap, 20 Measures DAX & Đặc tả 5 trang Power BI.
+* 📑 [Kế hoạch Quản lý Dự án & Phân công (Project Management Plan)](docs/PROJECT_MANAGEMENT_PLAN.md) - WBS, Ma trận RACI, Phân công 5 thành viên & Tiêu chí nghiệm thu.
 * 🏛️ [Kiến trúc Mô hình Hybrid Power BI](docs/HYBRID_POWERBI_ARCHITECTURE.md) - Chi tiết luồng Python ETL kết hợp Power BI Dashboard.
 * ⏰ [Hướng dẫn Vận hành Luồng Theo Lịch](docs/SCHEDULED_WORKFLOW_GUIDE.md) - Cấu hình GitHub Actions Cron & Secrets.
 * 🔄 [Tổng hợp 4 Biểu đồ Workflow cốt lõi](docs/WORKFLOWS.md) - 5 giai đoạn, Vòng lặp khép kín, Hybrid Power BI & Scheduled Dispatcher.
@@ -232,7 +234,6 @@ Vui lòng tham khảo các tài liệu chuyên sâu trong thư mục [`docs/`](d
 * 🐙 [Hướng dẫn tích hợp GitHub API](docs/GITHUB_INTEGRATION_GUIDE.md) - Labeling, Actions & Pull Request Draft.
 * ⚙️ [Hướng dẫn Triển khai & Vận hành](docs/DEPLOYMENT_AND_WORKFLOW.md) - Cron setup, GitHub Actions & Webhook.
 * 📝 [Bản báo cáo mẫu thực tế](docs/MENTOR_REPORT_DRAFT_SAMPLE.md) - Mẫu báo cáo hoàn chỉnh được xuất ra.
-
 
 ---
 
@@ -250,5 +251,9 @@ Tên hiện tại `Automation-Report-For-Leader` có thể đổi thành các t�
 ---
 
 ## 👥 Nhóm phát triển & Giấy phép
-* **Tác giả**: Dinh Cong Minh ([@nolanminhdinh](https://github.com/nolanminhdinh))
+* **Đinh Công Minh** ([@nolanminhdinh](https://github.com/nolanminhdinh)) - *Project Lead & BI Architect* (Nghiệp vụ, Thiết kế Báo cáo, Nghiệm thu & UAT)
+* **Nguyễn Minh Tú** - *Data Integration Engineer* (CVAT API Tasks/Jobs/Annotations)
+* **Vũ Trường Duy** - *Data Integration Engineer* (CVAT Quality API & GitHub API)
+* **Phạm Nguyễn Tuân** - *Analytics & ETL Engineer* (Python ETL Engine, Thuật toán chỉ số & Phân khúc)
+* **Ngô Duy Ngọc** - *DevOps & Automation Engineer* (GitHub Actions CI/CD & Notification Bot)
 * **Giấy phép**: [MIT License](LICENSE)
