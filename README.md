@@ -220,22 +220,70 @@ File báo cáo sau khi sinh sẽ nằm tại `reports/MENTOR_REPORT_DRAFT.md` s�
 
 ---
 
-## 📚 6. Tài liệu chi tiết trong `docs/`
+## 📚 6. Bản Đồ Tài Liệu & Hướng Dẫn Điều Hướng (Documentation Hub)
 
-Vui lòng tham khảo các tài liệu chuyên sâu trong thư mục [`docs/`](docs/):
-* 📊 [Đặc tả Dữ liệu & Bộ Chỉ số Báo cáo (Analytics Spec)](docs/PROJECT_ANALYTICS_SPEC.md) - Data Dictionary, Data Model, Mindmap, 20 Measures DAX & Đặc tả 5 trang Power BI.
-* 📑 [Kế hoạch Quản lý Dự án & Phân công (Project Management Plan)](docs/PROJECT_MANAGEMENT_PLAN.md) - WBS, Ma trận RACI, Phân công 5 thành viên & Tiêu chí nghiệm thu.
-* 🏛️ [Kiến trúc Mô hình Hybrid Power BI](docs/HYBRID_POWERBI_ARCHITECTURE.md) - Chi tiết luồng Python ETL kết hợp Power BI Dashboard.
-* ⏰ [Hướng dẫn Vận hành Luồng Theo Lịch](docs/SCHEDULED_WORKFLOW_GUIDE.md) - Cấu hình GitHub Actions Cron & Secrets.
-* 🔄 [Tổng hợp 4 Biểu đồ Workflow cốt lõi](docs/WORKFLOWS.md) - 5 giai đoạn, Vòng lặp khép kín, Hybrid Power BI & Scheduled Dispatcher.
-* 📖 [Kiến trúc hệ thống chi tiết](docs/ARCHITECTURE.md) - Đặc tả luồng xử lý dữ liệu và Data Flow.
-* 📋 [Đặc tả bản báo cáo 4 mục](docs/REPORT_TEMPLATE_SPEC.md) - Quy chuẩn chỉ số và định dạng đầu ra.
-* 🔌 [Hướng dẫn tích hợp CVAT REST API](docs/CVAT_INTEGRATION_GUIDE.md) - Endpoint, Authenticate & Deep Linking.
-* 🐙 [Hướng dẫn tích hợp GitHub API](docs/GITHUB_INTEGRATION_GUIDE.md) - Labeling, Actions & Pull Request Draft.
-* ⚙️ [Hướng dẫn Triển khai & Vận hành](docs/DEPLOYMENT_AND_WORKFLOW.md) - Cron setup, GitHub Actions & Webhook.
-* 📝 [Bản báo cáo mẫu thực tế](docs/MENTOR_REPORT_DRAFT_SAMPLE.md) - Mẫu báo cáo hoàn chỉnh được xuất ra.
+Để giúp các thành viên trong nhóm, Mentor hoặc bất kỳ ai chưa từng tham gia dự án có thể nhanh chóng nắm bắt và tra cứu đúng tài liệu cần thiết, toàn bộ tài liệu được phân chia thành **5 nhóm chuyên biệt trong [`docs/`](docs/)** và **Hệ thống báo cáo tuần trong [`reports/weekly/`](reports/weekly/)**:
+
+> 🧭 **Cẩm nang tổng quan**: Xem hướng dẫn tra cứu nhanh tại [`docs/README.md`](docs/README.md).
+
+```text
+📁 docs/
+├── 🏛️ 01-architecture/         <-- Kiến trúc hệ thống, Mô hình Hybrid & 4 Workflows
+├── 📊 02-data-and-analytics/   <-- Data Dictionary, Data Model, DAX Measures & Mẫu báo cáo
+├── 🔌 03-integrations/         <-- Hướng dẫn tích hợp CVAT REST API v2 & GitHub API v3
+├── ⚙️ 04-devops-automation/    <-- Cấu hình GitHub Actions Cron & Bot thông báo
+├── 👥 05-project-management/   <-- Kế hoạch quản lý WBS, RACI 5 thành viên & Tiêu chí nghiệm thu
+└── 📁 assets/                  <-- Sơ đồ kiến trúc Mermaid & SVG vector
+
+📁 reports/weekly/
+├── 📄 README.md                <-- Quy chuẩn báo cáo tuần
+└── 📁 week-01/                 <-- Báo cáo Tuần 1: Timeline 5 thành viên, Đã làm, Chưa làm & Cải tiến
+```
 
 ---
+
+### 🏛️ Nhóm 1: Kiến Trúc & Thiết Kế Hệ Thống (`docs/01-architecture/`)
+*Mục tiêu: Dành cho Tech Lead / Architect muốn hiểu bản chất kỹ thuật và nguyên lý dòng chảy dữ liệu.*
+* [**`SYSTEM_ARCHITECTURE.md`**](docs/01-architecture/SYSTEM_ARCHITECTURE.md): Đặc tả chi tiết kiến trúc khép kín 5 giai đoạn (*Trigger $\to$ Extract $\to$ Process $\to$ Report $\to$ Review*).
+* [**`HYBRID_POWERBI_ARCHITECTURE.md`**](docs/01-architecture/HYBRID_POWERBI_ARCHITECTURE.md): Luồng dữ liệu mô hình Hybrid kết hợp Python ETL Engine với Power BI Analytics Dashboard.
+* [**`WORKFLOWS.md`**](docs/01-architecture/WORKFLOWS.md): Tổng hợp 4 biểu đồ hoạt động Mermaid (Vòng lặp khép kín, Mô hình Hybrid, Luồng tự động theo lịch).
+
+---
+
+### 📊 Nhóm 2: Nghiệp Vụ Dữ Liệu & Bộ Chỉ Số Báo Cáo (`docs/02-data-and-analytics/`)
+*Mục tiêu: Dành cho Data Analyst, BI Developer, Mentor thẩm định công thức, mô hình dữ liệu và giao diện Power BI.*
+* [**`PROJECT_ANALYTICS_SPEC.md`**](docs/02-data-and-analytics/PROJECT_ANALYTICS_SPEC.md): **Tài liệu đặc tả cốt lõi** gồm Mindmap nghiệp vụ, Data Model Star Schema, Data Dictionary 9 bảng, 20 Measures DAX, logic phân khúc nhân sự và đặc tả chi tiết 5 trang Power BI.
+* [**`REPORT_TEMPLATE_SPEC.md`**](docs/02-data-and-analytics/REPORT_TEMPLATE_SPEC.md): Quy chuẩn cấu trúc bản báo cáo văn bản tóm tắt 4 phần gửi Mentor trước buổi họp.
+* [**`MENTOR_REPORT_SAMPLE.md`**](docs/02-data-and-analytics/MENTOR_REPORT_SAMPLE.md): Bản báo cáo mẫu thực tế được tự động sinh ra từ pipeline.
+
+---
+
+### 🔌 Nhóm 3: Tích Hợp API & Thu Thập Dữ Liệu (`docs/03-integrations/`)
+*Mục tiêu: Dành cho Backend / Data Engineers (Tú & Duy) phụ trách kết nối dữ liệu từ CVAT và GitHub.*
+* [**`CVAT_INTEGRATION_GUIDE.md`**](docs/03-integrations/CVAT_INTEGRATION_GUIDE.md): Hướng dẫn xác thực PAT Token, danh mục endpoint `/api/tasks`, `/api/jobs`, `/api/quality/reports` và quy tắc sinh URL Deep Link trực tiếp đến từng frame.
+* [**`GITHUB_INTEGRATION_GUIDE.md`**](docs/03-integrations/GITHUB_INTEGRATION_GUIDE.md): Hướng dẫn tích hợp GitHub REST API trích xuất danh sách ca khó (label `ca-kho`, `blocker`) và tự động tạo Pull Request Draft.
+
+---
+
+### ⚙️ Nhóm 4: Tự Động Hóa, CI/CD & Vận Hành (`docs/04-devops-automation/`)
+*Mục tiêu: Dành cho DevOps Engineers (Ngọc) hoặc người vận hành hệ thống trên server/cloud.*
+* [**`DEPLOYMENT_AND_WORKFLOW.md`**](docs/04-devops-automation/DEPLOYMENT_AND_WORKFLOW.md): Cẩm nang cài đặt môi trường, biến cấu hình `.env`, chạy lệnh CLI và thiết lập webhook thông báo.
+* [**`SCHEDULED_WORKFLOW_GUIDE.md`**](docs/04-devops-automation/SCHEDULED_WORKFLOW_GUIDE.md): Chi tiết cấu hình GitHub Actions Cron Trigger, khai báo GitHub Secrets và kiểm thử luồng chạy tự động.
+
+---
+
+### 👥 Nhóm 5: Quản Trị Dự Án & Kế Hoạch Thực Hiện (`docs/05-project-management/`)
+*Mục tiêu: Dành cho Project Lead (Minh) điều phối và các thành viên nắm rõ nhiệm vụ, deadline và tiêu chuẩn nghiệm thu.*
+* [**`PROJECT_MANAGEMENT_PLAN.md`**](docs/05-project-management/PROJECT_MANAGEMENT_PLAN.md): Cơ cấu nhóm 5 người, bảng phân công nhiệm vụ chi tiết (WBS), ma trận trách nhiệm RACI, quy tắc Git Flow, Hợp đồng bàn giao dữ liệu và tiêu chí nghiệm thu của Lead.
+
+---
+
+### 📈 Nhóm 6: Hồ Sơ Báo Cáo Tiến Độ Tuần (`reports/weekly/`)
+*Mục tiêu: Minh bạch hóa tiến độ từng tuần, giúp Mentor và các bên liên quan theo dõi sức khỏe dự án.*
+* [**`reports/weekly/README.md`**](reports/weekly/README.md): Quy chuẩn báo cáo tuần.
+* [**`reports/weekly/week-01/`**](reports/weekly/week-01/):
+  * ⏱️ [`TIMELINE_CONG_VIEC.md`](reports/weekly/week-01/TIMELINE_CONG_VIEC.md): Timeline chi tiết từng ngày của 5 thành viên trong tuần 1.
+  * 📊 [`BAO_CAO_TUAN_01.md`](reports/weekly/week-01/BAO_CAO_TUAN_01.md): Báo cáo công việc đã hoàn thành, việc chưa xong & 3 cải tiến sản phẩm quan trọng kèm căn cứ kỹ thuật.
 
 ## 💡 7. Gợi ý đổi tên Repository
 
