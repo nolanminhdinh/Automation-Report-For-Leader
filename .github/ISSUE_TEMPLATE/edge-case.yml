@@ -1,0 +1,29 @@
+name: Ca khó gán nhãn
+description: Ghi nhận ca khó, xung đột gán nhãn hoặc tranh chấp guideline cần thảo luận
+title: "[Ca khó] "
+labels: [ca-kho]
+body:
+  - type: textarea
+    id: references
+    attributes:
+      label: Tham chiếu CVAT
+      description: Thay ID bằng số thực tế. Giữ đúng cú pháp các dòng để pipeline tự động liên kết.
+      value: |
+        CVAT task ID: 
+        CVAT job ID: 
+        Frame index (nếu có): 
+        CVAT URL: 
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề & Trường hợp biên
+      description: Mô tả chi tiết hình ảnh, vật thể bị che khuất, thiếu sáng hoặc điểm tranh chấp guideline.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Đề xuất phương án của Team
+      description: Đề xuất gắn nhãn hoặc cách xử lý tạm thời (VD: Option A vs Option B).

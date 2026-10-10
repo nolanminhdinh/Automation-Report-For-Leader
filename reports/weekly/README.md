@@ -9,9 +9,12 @@ Thư mục này lưu trữ toàn bộ hồ sơ quản lý tiến độ, kế ho�
 ```text
 reports/weekly/
 ├── README.md                           <-- Quy chuẩn & Mục lục báo cáo tuần
-└── week-01/                            <-- Tuần 1: Khởi động, Nghiệp vụ & Prototype
+├── week-01/                            <-- Tuần 1: Khởi động, Nghiệp vụ & Prototype
+│   ├── TIMELINE_CONG_VIEC.md           <-- Timeline chi tiết từng ngày của 5 thành viên
+│   └── BAO_CAO_TUAN_01.md              <-- Báo cáo: Đã làm, Chưa làm & Cải tiến sản phẩm
+└── week-02/                            <-- Tuần 2: Ingestion Pipeline, Data Contract & Frame Deep Link
     ├── TIMELINE_CONG_VIEC.md           <-- Timeline chi tiết từng ngày của 5 thành viên
-    └── BAO_CAO_TUAN_01.md              <-- Báo cáo: Đã làm, Chưa làm & Cải tiến sản phẩm
+    └── BAO_CAO_TUAN_02.md              <-- Báo cáo: Nghiệm thu, Refactor & Tích hợp Ingestion API
 ```
 
 ---

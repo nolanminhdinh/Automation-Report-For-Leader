@@ -1,0 +1,30 @@
+name: Câu hỏi gửi Mentor
+description: Đặt câu hỏi định hướng, chính sách guideline hoặc hạ tầng cho phiên họp với Mentor
+title: "[Mentor Q&A] "
+labels: [mentor-question]
+body:
+  - type: textarea
+    id: references
+    attributes:
+      label: Tham chiếu công việc / CVAT (nếu có)
+      description: Nếu câu hỏi gắn liền với task/job cụ thể, hãy điền thông tin dưới đây. Nếu là câu hỏi chung, có thể để trống.
+      value: |
+        CVAT task ID: 
+        CVAT job ID: 
+        Frame index (nếu có): 
+    validations:
+      required: false
+  - type: textarea
+    id: question
+    attributes:
+      label: Nội dung câu hỏi
+      description: Trình bày rõ ràng bối cảnh, tác động và câu hỏi cần Mentor định đoạt.
+    validations:
+      required: true
+  - type: textarea
+    id: options
+    attributes:
+      label: Các phương án đang cân nhắc
+      description: Nêu các phương án A, B cùng ưu/nhược điểm đi kèm.
+    validations:
+      required: false

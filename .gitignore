@@ -45,7 +45,8 @@ env/
 *.swo
 
 # Output reports generated locally
-reports/*.md
+reports/MENTOR_REPORT_DRAFT*.md
+reports/draft_*.md
 !reports/.gitkeep
 temp/
 scratch/
