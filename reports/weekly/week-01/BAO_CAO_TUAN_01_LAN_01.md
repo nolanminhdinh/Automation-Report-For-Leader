@@ -1,9 +1,10 @@
-# 📊 BÁO CÁO TIẾN ĐỘ TUẦN 1 (WEEK 1 PROGRESS REPORT)
+# 📊 BÁO CÁO TIẾN ĐỘ TUẦN 1 — LẦN 1 (WEEK 1 PROGRESS REPORT - SESSION 1)
 
 > **Dự án**: Auto Annotation Report Pipeline (CVAT & GitHub Sync - Power BI Hybrid)  
 > **Giai đoạn**: Tuần 1 — Khảo sát Nghiệp vụ, Kiến trúc Hệ thống & Prototype  
+> **Phiên báo cáo**: Phiên 1 — Tối Thứ Năm (08/10/2026)  
 > **Người lập báo cáo**: Đinh Công Minh (Project Lead)  
-> **Ngày báo cáo**: 08/10/2026
+> **Ngày báo cáo**: 08/10/2026  
 
 ---
 
